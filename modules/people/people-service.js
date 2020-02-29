@@ -12,5 +12,10 @@ module.exports = {
   add(person) {
     people.push(person)
     return people
+  },
+
+  dequeue() {
+    people.shift()
+    return people
   }
 }
