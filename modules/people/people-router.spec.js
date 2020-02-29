@@ -9,4 +9,12 @@ describe('People Routes', () => {
         .expect(200)
     })
   })
+
+  describe('POST /people', () => {
+    it('responds with the new queue', () => {
+      return request(app)
+        .get('/people')
+        .expect(200)
+    })
+  })
 })

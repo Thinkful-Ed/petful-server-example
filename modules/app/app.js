@@ -1,12 +1,16 @@
 const express = require('express')
 const cors = require('cors')
-const petsRouter = require('../pets/pets-router')
+
+const adoptRouter = require('../adopt/adopt-router')
 const peopleRouter = require('../people/people-router')
+const petsRouter = require('../pets/pets-router')
 
 const app = express()
 
 app.use(cors())
-app.use('/pets', petsRouter)
+
+app.use('/adopt', adoptRouter)
 app.use('/people', peopleRouter)
+app.use('/pets', petsRouter)
 
 module.exports = app

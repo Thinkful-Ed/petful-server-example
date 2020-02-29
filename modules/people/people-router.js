@@ -2,18 +2,15 @@ const express = require('express')
 const router = express.Router()
 const json = require('body-parser').json()
 
-const people = [
-  'Person 1',
-  'Person 2',
-  'Person 3'
-]
+const People = require('./people-service')
 
 router.get('/', (req, res) => {
+  const people = People.get()
   res.json(people)
 })
 
 router.post('/', json, (req, res) => {
-  people.push(req.body.name)
+  const people = People.add(req.body.name)
   res.json(people)
 })
 

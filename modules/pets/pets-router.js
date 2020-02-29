@@ -1,28 +1,11 @@
 const express = require('express')
 const router = express.Router()
 
-router.get('/', (req, res) => {
-  res.json({
-    cat: {
-      age: 5,
-      breed: 'Tabby',
-      description: 'The furry kind.',
-      gender: 'Female',
-      image: 'https://loremflickr.com/200/200/cat',
-      name: 'Cat 1',
-      story: 'A story about the cat.'
-    },
+const Pets = require('./pets-service')
 
-    dog: {
-      age: 2,
-      breed: 'Mutt',
-      description: 'The kind that barks.',
-      gender: 'Male',
-      image: 'https://loremflickr.com/200/200/dog',
-      name: 'Dog 1',
-      story: 'A story about the dog.'
-    }
-  })
+router.get('/', (req, res) => {
+  const pets = Pets.get()
+  res.json(pets)
 })
 
 module.exports = router
