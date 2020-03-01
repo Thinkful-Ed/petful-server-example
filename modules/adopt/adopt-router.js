@@ -7,7 +7,7 @@ const Pets = require('../pets/pets-service')
 
 router.post('/', json, (req, res) => {
   const people = People.dequeue()
-  const pets = Pets.dequeue('dog')
+  const pets = Pets.dequeue(req.body.type)
 
   console.log({
     people,
