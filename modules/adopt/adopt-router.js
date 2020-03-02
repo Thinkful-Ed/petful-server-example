@@ -6,20 +6,17 @@ const People = require('../people/people-service')
 const Pets = require('../pets/pets-service')
 
 router.post('/', json, (req, res) => {
+  const adopted = Pets.get()[req.body.type].name
+  const person = People.get()[0]
+
   const people = People.dequeue()
   const pets = Pets.dequeue(req.body.type)
-
-  console.log({
-    people,
-    ...pets,
-    message: 'Someone adopted someone.'
-  })
 
   res.json({
     people,
     cat: pets.cats[0],
     dog: pets.dogs[0],
-    message: 'Someone adopted someone.'
+    message: `${ person } adopted ${ adopted }.`
   })
 })
 
