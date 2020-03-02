@@ -1,21 +1,24 @@
-const people = [
-  'Person 1',
-  'Person 2',
-  'Person 3'
-]
+const Queue = require('../queue/Queue')
+const Store = require('../../Store')
+
+// Set up initial data.
+// --------------------
+
+const people = new Queue()
+Store.people.forEach(person => people.enqueue(person))
+
+// --------------------
 
 module.exports = {
   get() {
-    return people
+    return Store.people
   },
 
-  add(person) {
-    people.push(person)
-    return people
+  enqueue(person) {
+    return people.enqueue(person)
   },
 
   dequeue() {
-    people.shift()
-    return people
+    return people.dequeue()
   }
 }

@@ -10,8 +10,8 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', json, (req, res) => {
-  const people = People.add(req.body.name)
-  res.json(people)
+  const person = People.enqueue(req.body.name)
+  res.json({ person })
 })
 
 module.exports = router
