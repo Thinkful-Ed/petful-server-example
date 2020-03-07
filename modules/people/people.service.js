@@ -1,17 +1,17 @@
 const Queue = require('../queue/Queue')
-const Store = require('../../store')
+const store = require('../../store')
 
 // Set up initial data.
 // --------------------
 
 const people = new Queue()
-Store.people.forEach(person => people.enqueue(person))
+store.people.forEach(person => people.enqueue(person))
 
 // --------------------
 
 module.exports = {
   get() {
-    return Store.people
+    return people.all()
   },
 
   enqueue(person) {

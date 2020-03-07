@@ -53,6 +53,24 @@ class Queue {
 
     return this.first.value
   }
+
+  all() {
+    const values = []
+    let finished = false
+    let current = this.first
+
+    while (finished === false) {
+      if (current === null) {
+        finished = true
+        break
+      }
+
+      values.push(current.value)
+      current = current.next
+    }
+
+    return values
+  }
 }
 
 module.exports = Queue

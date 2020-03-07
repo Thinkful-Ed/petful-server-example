@@ -1,5 +1,5 @@
 const Queue = require('../queue/Queue')
-const Store = require('../../store')
+const store = require('../../store')
 
 // Set up initial data.
 // --------------------
@@ -9,8 +9,8 @@ const pets = {
   dogs: new Queue()
 }
 
-Store.cats.forEach(cat => pets.cats.enqueue(cat))
-Store.dogs.forEach(dog => pets.dogs.enqueue(dog))
+store.cats.forEach(cat => pets.cats.enqueue(cat))
+store.dogs.forEach(dog => pets.dogs.enqueue(dog))
 
 // --------------------
 
